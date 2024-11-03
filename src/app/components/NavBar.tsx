@@ -1,41 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/app/components/ui/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/app/components/ui/navigation-menu";
+import Link from "next/link";
+import { NAV_PATHS } from "@/app/constants";
 
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { usePathname } from "next/navigation";
-import { GetPath } from "../utils";
-import { NAV_PATHS } from "../constants";
-
-export default function NavTabs() {
-  const urlPath = usePathname();
-  const pathIndex = GetPath(urlPath);
-  const [value, setValue] = useState(pathIndex);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
+export default function NavBar() {
   return (
-    <Tabs
-      value={value}
-      onChange={handleChange}
-      className="p-8 sticky inset-0 bg-blue-500"
-      aria-label="tab navigation"
-      role="navigation"
-      centered
-    >
-      {NAV_PATHS.map((path) => {
-        return (
-          <Tab
-            key={path.name}
-            label={path.name}
-            href={"#" + path.path}
-            component="a"
-          />
-        );
-      })}
-    </Tabs>
+    <NavigationMenu className="sticky inset-0">
+      <NavigationMenuList>
+        {NAV_PATHS.map((path) => {
+          return (
+            <NavigationMenuItem key={path.name}>
+              <Link href={"#" + path.path} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {path.name}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          );
+        })}
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }

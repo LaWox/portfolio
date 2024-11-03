@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { H1 } from "./ui/typography";
 
 export default function About() {
   return (
@@ -6,10 +6,8 @@ export default function About() {
       id="about"
       className="mt-8 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen "
     >
-      <Typography variant="h2" component="h1">
-        Platon Woxer
-      </Typography>
-      <Typography variant="body1">Lite text om mig</Typography>
+      <H1>Platon Woxler </H1>
+      <p>Lite text om mig</p>
     </div>
   );
 }

@@ -1,13 +1,13 @@
-import About from "./about/page";
-import Contact from "./contact/page";
-import Work from "./work/page";
+import About from "@/app/components/about";
+import Contact from "@/app/components/contact";
+import Work from "@/app/components/work";
 
 export default function Home() {
   return (
     <>
       <About />
       <Work />
-      <Contact />;
+      <Contact />
     </>
   );
 }
