@@ -12,13 +12,18 @@ import { NAV_PATHS } from "@/app/constants";
 
 export default function NavBar() {
   return (
-    <NavigationMenu className="sticky inset-0">
+    <NavigationMenu className="sticky top-0 mx-auto w-full bg-white px-40">
       <NavigationMenuList>
         {NAV_PATHS.map((path) => {
           return (
             <NavigationMenuItem key={path.name}>
               <Link href={"#" + path.path} legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={
+                    "text-base font-medium transition-all duration-100 " +
+                    navigationMenuTriggerStyle()
+                  }
+                >
                   {path.name}
                 </NavigationMenuLink>
               </Link>
