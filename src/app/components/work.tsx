@@ -1,4 +1,5 @@
 import { H1, H2 } from "./ui/typography";
+import Image from "next/image";
 
 import { type SanityDocument } from "next-sanity";
 
@@ -7,7 +8,7 @@ import Link from "next/link";
 const POSTS_QUERY = `*[
   _type == "projectPost"
   && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, "imageUrl": image.asset -> url}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -27,6 +28,9 @@ export default async function Work() {
             <H2>{post.title}</H2>
             <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
           </Link>
+          {post.imageUrl && (
+            <Image src={post.imageUrl} alt={""} width={200} height={200} />
+          )}
         </li>
       ))}
     </div>

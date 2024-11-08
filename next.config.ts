@@ -4,4 +4,17 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/otyxzm50/**',
+      },
+    ],
+  },
+}
+
 export default nextConfig;
