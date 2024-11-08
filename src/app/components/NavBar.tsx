@@ -7,8 +7,8 @@ import {
   NavigationMenuList,
 } from "@/app/components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/app/components/ui/navigation-menu";
-import Link from "next/link";
 import { NAV_PATHS } from "@/app/constants";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
