@@ -12,11 +12,11 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <NavigationMenu className="sticky top-0 mx-auto w-full bg-white px-40">
+    <NavigationMenu className="sticky top-0 bg-white border-b  w-full max-w-none">
       <NavigationMenuList>
         {NAV_PATHS.map((path) => {
           return (
-            <NavigationMenuItem key={path.name}>
+            <NavigationMenuItem key={path.name} className="p-1">
               <Link href={"#" + path.path} legacyBehavior passHref>
                 <NavigationMenuLink
                   className={

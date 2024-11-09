@@ -5,5 +5,5 @@ export const H1 = ({ children }: PropsWithChildren) => {
 };
 
 export const H2 = ({ children }: PropsWithChildren) => {
-  return <h2 className="border-b text-3xl font-semibold">{children}</h2>;
+  return <h2 className="text-3xl font-semibold">{children}</h2>;
 };

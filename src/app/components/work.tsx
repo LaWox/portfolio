@@ -8,7 +8,7 @@ import { ProjectPost } from "./projectPost";
 const POSTS_QUERY = `*[
   _type == "projectPost"
   && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, "imageUrls": images[].asset->url}`;
+]|order(publishedAt desc)[0...12]{_id, title, body, slug, publishedAt, "imageUrls": images[].asset->url}`;
 
 const options = { next: { revalidate: 5 } };
 
@@ -18,12 +18,16 @@ export default async function Work() {
   return (
     <div
       id="work"
-      className="mt-4 items-center justify-items-center min-h-screen scroll-m-10"
+      className="mt-4 items-center justify-items-center min-h-screen scroll-m-16"
     >
       <H1>Work</H1>
-      {posts.map((post) => (
-        <ProjectPost key={post._id} post={post} />
-      ))}
+      <div className="grid grid-cols-1 gap-8">
+        {posts.map((post) => (
+          <div className="py-2" key={post._id}>
+            <ProjectPost post={post} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
