@@ -1,4 +1,4 @@
-import { H1 } from "./ui/typography";
+import { H2 } from "./ui/typography";
 
 export default function Contact() {
   return (
@@ -6,7 +6,7 @@ export default function Contact() {
       id="contact"
       className="mt-4 items-center justify-items-center min-h-screen scroll-m-16"
     >
-      <H1>Contact</H1>
+      <H2>Contact</H2>
       <p>Lite text om mig</p>
     </div>
   );

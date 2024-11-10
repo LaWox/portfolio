@@ -15,11 +15,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        ></link>
+      </head>
       <body>
-        <section className="max-w-6xl mx-auto content-center">
-          <NavBar />
-          {children}
-        </section>
+        <NavBar />
+        {children}
+
         <Footer />
       </body>
     </html>

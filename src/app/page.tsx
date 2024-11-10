@@ -6,8 +6,10 @@ export default async function Home() {
   return (
     <>
       <About />
-      <Work />
-      <Contact />
+      <section className="max-w-6xl mx-auto">
+        <Work />
+        <Contact />
+      </section>
     </>
   );
 }
