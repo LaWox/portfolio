@@ -18,9 +18,9 @@ export default async function Work() {
     >
       <H2>Work</H2>
       <div className="grid grid-cols-1 gap-8">
-        {posts.map((post) => (
+        {posts.map((post, idx) => (
           <div className="py-2" key={post._id}>
-            <ProjectPost post={post} />
+            <ProjectPost post={post} idx={idx} />
           </div>
         ))}
       </div>

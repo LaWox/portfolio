@@ -16,10 +16,10 @@ export default async function About() {
   return (
     <div
       id="about"
-      className="mt-4 px-8 max-w-[90%] mx-auto items-center justify-items-center scroll-m-16"
+      className="mt-4 px-2 max-w-[90%] mx-auto items-center justify-items-center scroll-m-16 min-h-screen"
     >
       <H1>Platon Woxler </H1>
-      <div className="grid grid-cols-2 gap-4 pt-4">
+      <div className="grid grid-cols-2 gap-4 pt-6">
         {heroContent.imageUrl && (
           <Image
             className="w-full"

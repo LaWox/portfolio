@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <NavigationMenu className="sticky top-0 bg-white border-b  w-full max-w-none">
+    <NavigationMenu className="sticky top-0 py-2 bg-[#90A959] border-b  border-black w-full max-w-none">
       <NavigationMenuList>
         {NAV_PATHS.map((path) => {
           return (
@@ -20,7 +20,7 @@ export default function NavBar() {
               <Link href={"#" + path.path} legacyBehavior passHref>
                 <NavigationMenuLink
                   className={
-                    "text-base font-medium transition-all duration-100 " +
+                    "text-lg font-medium transition-all duration-100  bg-[#90A959] " +
                     navigationMenuTriggerStyle()
                   }
                 >
