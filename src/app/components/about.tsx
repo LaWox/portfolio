@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { client } from "@/sanity/client";
 import { HERO_QUERY } from "@/sanity/constants";
-import { PortableText, SanityDocument } from "next-sanity";
+import { SanityDocument } from "next-sanity";
 
 const options = { next: { revalidate: 5 } };
 
@@ -16,23 +16,23 @@ export default async function About() {
   return (
     <div
       id="about"
-      className="mt-4 px-2 max-w-[90%] mx-auto items-center justify-items-center scroll-m-16 min-h-screen"
+      className=" mx-auto items-center justify-items-center scroll-m-16  relative"
     >
-      <H1>Platon Woxler </H1>
-      <div className="grid grid-cols-2 gap-4 pt-6">
-        {heroContent.imageUrl && (
-          <Image
-            className="w-full"
-            src={heroContent.imageUrl}
-            alt={""}
-            width={800}
-            height={400}
-          />
-        )}
-        <div>
-          <PortableText value={heroContent.body} />
-        </div>
+      <div className="text-white absolute top-[25%] left-[25%] w-full drop-shadow-[0_5.2px_5.2px_rgba(1,1,1,1)]">
+        <H1>Platon Woxler </H1>
       </div>
+      {heroContent.imageUrl && (
+        <Image
+          className="w-full"
+          src={heroContent.imageUrl}
+          alt={""}
+          width={800}
+          height={400}
+        />
+      )}
+      {/* <div>
+        <PortableText value={heroContent.body} />
+      </div> */}
     </div>
   );
 }
