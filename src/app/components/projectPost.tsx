@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { SanityDocument } from "next-sanity";
-import { H3 } from "./ui/typography";
+import { Body, H3 } from "./ui/typography";
 import { PortableText } from "@portabletext/react";
 import { getDevlogLink } from "./utils";
 import { ArrowRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
@@ -82,7 +82,7 @@ const PostInfo = ({ post }: { post: SanityDocument }) => {
             className="font-semibold flex"
             href={getDevlogLink(post.slug.current)}
           >
-            Read more
+            <Body className="font-base">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>
           {post.gitLink && (
