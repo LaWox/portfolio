@@ -14,7 +14,7 @@ export default async function Hero() {
     options
   );
   return (
-    <div id="start" className="scroll-m-16 relative">
+    <div id="start" className="scroll-m-20 relative">
       <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2]">
         <H1>Platon Woxler</H1>
       </div>

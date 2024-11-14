@@ -78,11 +78,8 @@ const PostInfo = ({ post }: { post: SanityDocument }) => {
       <div className="flex flex-col justify-between">
         <PortableText value={post.body} />
         <div className="flex justify-between">
-          <Link
-            className="font-semibold flex"
-            href={getDevlogLink(post.slug.current)}
-          >
-            <Body className="font-base">Read more</Body>
+          <Link className="flex" href={getDevlogLink(post.slug.current)}>
+            <Body className="font-base font-semibold">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>
           {post.gitLink && (

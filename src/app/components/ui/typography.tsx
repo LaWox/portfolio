@@ -18,5 +18,5 @@ export const H3 = ({ children }: PropsWithChildren) => {
 };
 
 export const Body = ({ children, className }: PropsWithChildren<Props>) => {
-  return <p className={cn("font-roboto ", className)}>{children}</p>;
+  return <p className={cn("font-roboto", className)}>{children}</p>;
 };
