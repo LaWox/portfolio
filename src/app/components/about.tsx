@@ -16,8 +16,10 @@ export default async function About() {
       id="about"
       className="mx-auto items-center justify-items-center scroll-m-16 relative py-8"
     >
-      <H2> About </H2>
-      <PortableText value={heroContent.body} />
+      <div className="max-w-6xl">
+        <H2> About </H2>
+        <PortableText value={heroContent.body} />
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default async function Home() {
       <section className="px-16 mx-auto">
         <Hero />
       </section>
-      <section className="max-w-6xl mx-auto">
+      <section className="mx-auto">
         <About />
         <Work />
         <Contact />

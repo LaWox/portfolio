@@ -14,6 +14,7 @@ import { ArrowRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export const ProjectPost = ({
   post,
@@ -25,16 +26,16 @@ export const ProjectPost = ({
   return (
     <>
       <H3>{post.title}</H3>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-5 gap-8">
         {idx % 2 === 0 ? (
           <>
-            <PostInfo post={post} />
-            <PostCarousel post={post} />
+            <PostInfo post={post} className="col-span-2" />
+            <PostCarousel post={post} className="col-span-3" />
           </>
         ) : (
           <>
-            <PostCarousel post={post} />
-            <PostInfo post={post} />
+            <PostCarousel post={post} className="col-span-3" />
+            <PostInfo post={post} className="col-span-2" />
           </>
         )}
       </div>
@@ -42,40 +43,48 @@ export const ProjectPost = ({
   );
 };
 
-const PostCarousel = ({ post }: { post: SanityDocument }) => {
+const PostCarousel = ({
+  post,
+  className,
+}: {
+  post: SanityDocument;
+  className?: string;
+}) => {
   return (
-    <>
-      <Carousel opts={{ loop: true }}>
-        <CarouselContent>
-          {post.imageUrls.map((imgUrl: string) => {
-            return (
-              imgUrl && (
-                <CarouselItem key={imgUrl} className="w-full">
-                  <Image
-                    src={imgUrl}
-                    alt={""}
-                    height={400}
-                    width={400}
-                    // fill
-                    objectFit="fill"
-                    className="w-full h-full max-h-[500px]"
-                  />
-                </CarouselItem>
-              )
-            );
-          })}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </>
+    <Carousel opts={{ loop: true }} className={cn("", className)}>
+      <CarouselContent>
+        {post.imageUrls.map((imgUrl: string) => {
+          return (
+            imgUrl && (
+              <CarouselItem key={imgUrl}>
+                <Image
+                  src={imgUrl}
+                  alt={""}
+                  height={400}
+                  width={400}
+                  className="w-full h-full max-h-[500px] object-cover"
+                />
+              </CarouselItem>
+            )
+          );
+        })}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 };
 
-const PostInfo = ({ post }: { post: SanityDocument }) => {
+const PostInfo = ({
+  post,
+  className,
+}: {
+  post: SanityDocument;
+  className?: string;
+}) => {
   return (
     <>
-      <div className="flex flex-col justify-between">
+      <div className={cn("flex flex-col justify-between", className)}>
         <PortableText value={post.body} />
         <div className="flex justify-between">
           <Link className="flex" href={getDevlogLink(post.slug.current)}>
