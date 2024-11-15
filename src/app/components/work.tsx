@@ -3,12 +3,12 @@ import { H2 } from "./ui/typography";
 import { type SanityDocument } from "next-sanity";
 
 import { client } from "@/sanity/client";
-import { ProjectPost } from "./projectPost";
+import { ProjectPost } from "./ProjectPost";
 import { POSTS_QUERY } from "@/sanity/constants";
 
 const options = { next: { revalidate: 30 } };
 
-export default async function Work() {
+export const Work = async () => {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
   return (
@@ -26,4 +26,4 @@ export default async function Work() {
       </div>
     </div>
   );
-}
+};

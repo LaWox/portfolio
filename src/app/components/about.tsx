@@ -5,7 +5,7 @@ import { H2 } from "./ui/typography";
 
 const options = { next: { revalidate: 5 } };
 
-export default async function About() {
+export const About = async () => {
   const heroContent = await client.fetch<SanityDocument>(
     HERO_QUERY,
     {},
@@ -22,4 +22,4 @@ export default async function About() {
       </div>
     </div>
   );
-}
+};

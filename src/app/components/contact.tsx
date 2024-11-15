@@ -1,6 +1,6 @@
 import { H2 } from "./ui/typography";
 
-export default function Contact() {
+export const Contact = async () => {
   return (
     <div
       id="contact"
@@ -10,4 +10,4 @@ export default function Contact() {
       <p>Lite text om mig</p>
     </div>
   );
-}
+};

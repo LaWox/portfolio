@@ -7,7 +7,7 @@ import { SanityDocument } from "next-sanity";
 
 const options = { next: { revalidate: 5 } };
 
-export default async function Hero() {
+export const Hero = async () => {
   const heroContent = await client.fetch<SanityDocument>(
     HERO_QUERY,
     {},
@@ -29,4 +29,4 @@ export default async function Hero() {
       )}
     </div>
   );
-}
+};

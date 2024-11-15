@@ -12,7 +12,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Body } from "./ui/typography";
 
-export default function NavBar() {
+export const NavBar = () => {
   return (
     <NavigationMenu className="sticky px-16 py-4 top-0 justify-center md:justify-end bg-[#FCFAFA] w-full">
       <div className="mr-auto">
@@ -50,4 +50,4 @@ export default function NavBar() {
       </NavigationMenuList>
     </NavigationMenu>
   );
-}
+};
