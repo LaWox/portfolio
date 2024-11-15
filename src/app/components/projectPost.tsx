@@ -1,11 +1,3 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
 import { SanityDocument } from "next-sanity";
 import { Body, H3 } from "./ui/typography";
 import { PortableText } from "@portabletext/react";
@@ -15,6 +7,13 @@ import { ArrowRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "./ui/carousel";
 
 export const ProjectPost = ({
   post,
