@@ -1,6 +1,8 @@
+"use client";
+
 import { H2 } from "./ui/typography";
 
-export const Contact = async () => {
+export const Contact = () => {
   return (
     <div
       id="contact"

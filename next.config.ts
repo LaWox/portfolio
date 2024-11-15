@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/portfolio",
+  distDir: 'out',
   output: "export",
-  reactStrictMode: true
-  /* config options here */
-};
-
-module.exports = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,6 +14,6 @@ module.exports = {
       },
     ],
   },
-}
+};
 
 export default nextConfig;

@@ -1,16 +1,11 @@
+"use client";
+
 import { H2 } from "./ui/typography";
 
-import { type SanityDocument } from "next-sanity";
+import { ProjectPost } from "./ProjectPost";
+import { SanityDocument } from "next-sanity";
 
-import { client } from "@/sanity/client";
-import { ProjectPost } from "./ProjectPost2";
-import { POSTS_QUERY } from "@/sanity/constants";
-
-const options = { next: { revalidate: 30 } };
-
-export const Work = async () => {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
-
+export const Work = ({ posts }: { posts: SanityDocument[] }) => {
   return (
     <div
       id="work"

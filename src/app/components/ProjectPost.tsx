@@ -1,3 +1,4 @@
+"use client";
 import { SanityDocument } from "next-sanity";
 import { Body, H3 } from "./ui/typography";
 import { PortableText } from "@portabletext/react";

@@ -1,16 +1,9 @@
-import { client } from "@/sanity/client";
-import { HERO_QUERY } from "@/sanity/constants";
+"use client";
+
 import { PortableText, SanityDocument } from "next-sanity";
 import { H2 } from "./ui/typography";
 
-const options = { next: { revalidate: 5 } };
-
-export const About = async () => {
-  const heroContent = await client.fetch<SanityDocument>(
-    HERO_QUERY,
-    {},
-    options
-  );
+export const About = ({ heroContent }: { heroContent: SanityDocument }) => {
   return (
     <div
       id="about"
