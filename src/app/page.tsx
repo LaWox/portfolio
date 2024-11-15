@@ -1,7 +1,7 @@
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { Hero } from "@/components/Hero";
-import { Work } from "@/components/Work";
+import { About } from "@/components/About2";
+import { Contact } from "@/components/Contact2";
+import { Hero } from "@/components/Hero2";
+import { Work } from "@/components/Work2";
 
 export default async function Home() {
   return (
