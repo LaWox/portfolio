@@ -3,7 +3,7 @@ import { H2 } from "./ui/typography";
 import { type SanityDocument } from "next-sanity";
 
 import { client } from "@/sanity/client";
-import { ProjectPost } from "./ProjectPost";
+import { ProjectPost } from "./ProjectPost2";
 import { POSTS_QUERY } from "@/sanity/constants";
 
 const options = { next: { revalidate: 30 } };
