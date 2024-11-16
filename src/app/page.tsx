@@ -24,7 +24,7 @@ export default async function Home() {
     heroContent &&
     posts && (
       <>
-        <section className="px-16 mx-auto">
+        <section className="px-16 mx-auto hidden md:block">
           <Hero imageUrl={heroContent.imageUrl} />
         </section>
         <section className="mx-auto">

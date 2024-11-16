@@ -5,7 +5,7 @@ export const About = ({ heroContent }: { heroContent: SanityDocument }) => {
   return (
     <div
       id="about"
-      className="mx-auto items-center justify-items-center scroll-m-16 relative py-8 max-w-6xl"
+      className="mx-auto items-center justify-items-center scroll-m-16 relative py-8 max-w-6xl px-2 md:px-none"
     >
       <H2> About </H2>
       <PortableText value={heroContent.body} />

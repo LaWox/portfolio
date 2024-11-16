@@ -12,7 +12,7 @@ import { Body } from "./ui/typography";
 
 export const NavBar = () => {
   return (
-    <NavigationMenu className="sticky px-16 py-4 top-0 justify-center md:justify-end bg-[#FCFAFA] w-full">
+    <NavigationMenu className="sticky px-2 md:px-16 py-4 top-0 justify-center md:justify-end bg-[#FCFAFA] w-full">
       <div className="mr-auto">
         <NavigationMenuList>
           <NavigationMenuItem>

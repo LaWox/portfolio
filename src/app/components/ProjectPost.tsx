@@ -24,22 +24,42 @@ export const ProjectPost = ({
   idx: number;
 }) => {
   return (
-    <div>
+    <>
       <H3>{post.title}</H3>
-      <div className="grid grid-cols-5 gap-8">
-        {idx % 2 === 0 ? (
-          <>
-            <PostInfo post={post} className="col-span-2" />
-            <PostCarousel post={post} className="col-span-3" />
-          </>
-        ) : (
-          <>
-            <PostCarousel post={post} className="col-span-3" />
-            <PostInfo post={post} className="col-span-2" />
-          </>
-        )}
+      <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
+        <DesktopPost idx={idx} post={post} />
       </div>
-    </div>
+      <div className="block md:hidden">
+        <MobilePost post={post} />
+      </div>
+    </>
+  );
+};
+
+const DesktopPost = ({ idx, post }: { idx: number; post: SanityDocument }) => {
+  return (
+    <>
+      {idx % 2 === 0 ? (
+        <>
+          <PostInfo post={post} className="md:col-span-2" />
+          <PostCarousel post={post} className="md:col-span-3" />
+        </>
+      ) : (
+        <>
+          <PostCarousel post={post} className="md:col-span-3" />
+          <PostInfo post={post} className="md:col-span-2" />
+        </>
+      )}
+    </>
+  );
+};
+
+const MobilePost = ({ post }: { post: SanityDocument }) => {
+  return (
+    <>
+      <PostInfo post={post} className="row-span-1" />
+      <PostCarousel post={post} className="row-span-1" />
+    </>
   );
 };
 
@@ -62,7 +82,7 @@ const PostCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[500px] object-cover"
+                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover"
                 />
               </CarouselItem>
             )
