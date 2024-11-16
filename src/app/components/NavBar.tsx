@@ -6,11 +6,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/app/components/ui/navigation-menu";
-import { navigationMenuTriggerStyle } from "@/app/components/ui/navigation-menu";
 import { NAV_PATHS } from "@/app/constants";
-import Link from "next/link";
 import { Logo } from "./Logo";
-import { Body } from "./ui/typography";
 import React from "react";
 import { cn } from "@/lib/utils";
 
