@@ -1,4 +1,3 @@
-"use client";
 import { H1 } from "./ui/typography";
 import Image from "next/image";
 

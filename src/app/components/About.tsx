@@ -1,5 +1,3 @@
-"use client";
-
 import { PortableText, SanityDocument } from "next-sanity";
 import { H2 } from "./ui/typography";
 

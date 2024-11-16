@@ -1,5 +1,3 @@
-"use client";
-
 import { H2 } from "./ui/typography";
 
 import { ProjectPost } from "./ProjectPost";
