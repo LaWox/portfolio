@@ -1,6 +1,12 @@
 import "./globals.css";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Platon Woxler - Portfolio",
+  description: "Portfolio project made by Platon Woxler",
+};
 
 export default function RootLayout({
   children,
