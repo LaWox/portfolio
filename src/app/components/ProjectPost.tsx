@@ -24,7 +24,7 @@ export const ProjectPost = ({
   idx: number;
 }) => {
   return (
-    <>
+    <div>
       <H3>{post.title}</H3>
       <div className="grid grid-cols-5 gap-8">
         {idx % 2 === 0 ? (
@@ -39,7 +39,7 @@ export const ProjectPost = ({
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
