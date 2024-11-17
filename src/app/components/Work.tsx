@@ -10,7 +10,7 @@ export const Work = ({ posts }: { posts: SanityDocument[] }) => {
       <Separator className="h-1" />
       <div
         id="work"
-        className="py-8 items-center justify-items-center scroll-m-16 bg-[#F4F1BB]"
+        className="py-8 items-center justify-items-center scroll-m-16 bg-[#E9D7D7]"
       >
         <H2>Work</H2>
         <div className="grid grid-cols-1 gap-8 max-w-6xl px-2 md:px-none py-4">

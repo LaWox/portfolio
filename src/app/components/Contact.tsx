@@ -7,7 +7,7 @@ export const Contact = () => {
       <Separator className="h-1" />
       <div
         id="contact"
-        className="bg-[#9BC1BC] pt-8 items-center justify-items-center min-h-screen scroll-m-24"
+        className="pt-8 items-center justify-items-center min-h-screen scroll-m-24"
       >
         <H2>Contact</H2>
         <p>Lite text om mig</p>

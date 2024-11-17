@@ -58,7 +58,8 @@ const config: Config = {
   		},
 		fontFamily: {
 			'roboto': ["Roboto", 'sans-serif'],
-			'bungee': ["Bungee", 'sans-serif']
+			'bungee': ["Bungee", 'sans-serif'],
+			'rubik-mono-one': ["Rubik Mono One", 'monospace']
 
 
 		}

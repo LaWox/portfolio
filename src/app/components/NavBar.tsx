@@ -17,15 +17,15 @@ export const NavBar = () => {
       <div className="mr-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>
+            <NavigationMenuTrigger className="px-0">
               <Logo />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 w-[150px]">
+              <ul className="grid gap-3 p-4">
                 {NAV_PATHS.map((path) => {
                   return (
                     <ListItem key={path.name} href={"#" + path.path}>
-                      {path.name}
+                      {"#" + path.name}
                     </ListItem>
                   );
                 })}

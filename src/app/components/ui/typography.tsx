@@ -7,7 +7,7 @@ type Props = {
 
 export const H1 = ({ children }: PropsWithChildren) => {
   return (
-    <h1 className="text-8xl text-center font-bungee font-extrabold ">
+    <h1 className="text-8xl text-center font-rubik-mono-one font-semibild ">
       {children}
     </h1>
   );

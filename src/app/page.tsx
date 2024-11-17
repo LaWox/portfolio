@@ -20,12 +20,13 @@ export default async function Home() {
     options
   );
 
+  console.log("heroContent: ", heroContent);
   return (
     heroContent &&
     posts && (
       <>
         <section className="px-16 mx-auto hidden md:block">
-          <Hero imageUrl={heroContent.imageUrl} />
+          <Hero imageUrl={heroContent.heroImageUrl} />
         </section>
         <section className="mx-auto">
           <About heroContent={heroContent} />

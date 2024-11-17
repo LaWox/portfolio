@@ -3,7 +3,7 @@ export const POSTS_QUERY = `*[
     && defined(slug.current)
   ]|order(publishedAt desc)[0...12]{_id, title, body, slug, gitLink, publishedAt, "imageUrls": images[].asset->url}`;
 
-  export const HERO_QUERY = `*[
+export const HERO_QUERY = `*[
     _type == "heroContent"
     && defined(slug.current)
-  ][0]{_id, title, body, slug, gitUrl, linkedinUrl, publishedAt, "imageUrl": image.asset->url}`;
+  ][0]{_id, title, body, slug, gitUrl, linkedinUrl, publishedAt, "heroImageUrl": heroImage.asset->url, "portraitImageUrl": portraitImage.asset -> url}`;
