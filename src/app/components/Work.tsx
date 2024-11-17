@@ -13,11 +13,9 @@ export const Work = ({ posts }: { posts: SanityDocument[] }) => {
         className="py-8 items-center justify-items-center scroll-m-16 bg-[#F4F1BB]"
       >
         <H2>Work</H2>
-        <div className="grid grid-cols-1 gap-8 max-w-6xl px-2 md:px-none divide-y-2">
+        <div className="grid grid-cols-1 gap-8 max-w-6xl px-2 md:px-none py-4">
           {posts.map((post, idx) => (
-            <div key={post._id} className="pt-4">
-              <ProjectPost post={post} idx={idx} />
-            </div>
+            <ProjectPost key={post._id} post={post} idx={idx} />
           ))}
         </div>
       </div>

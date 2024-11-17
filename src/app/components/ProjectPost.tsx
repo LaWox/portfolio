@@ -15,6 +15,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "./ui/carousel";
+import { Card, CardContent, CardHeader } from "./ui/card";
 
 export const ProjectPost = ({
   post,
@@ -24,15 +25,19 @@ export const ProjectPost = ({
   idx: number;
 }) => {
   return (
-    <>
-      <H3>{post.title}</H3>
-      <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
-        <DesktopPost idx={idx} post={post} />
-      </div>
-      <div className="block md:hidden">
-        <MobilePost post={post} />
-      </div>
-    </>
+    <Card>
+      <CardHeader>
+        <H3>{post.title}</H3>
+      </CardHeader>
+      <CardContent>
+        <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
+          <DesktopPost idx={idx} post={post} />
+        </div>
+        <div className="block md:hidden">
+          <MobilePost post={post} />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -58,7 +63,7 @@ const MobilePost = ({ post }: { post: SanityDocument }) => {
   return (
     <>
       <PostInfo post={post} className="row-span-1" />
-      <PostCarousel post={post} className="row-span-1" />
+      <PostCarousel post={post} className="row-span-1 pt-4" />
     </>
   );
 };
@@ -82,7 +87,7 @@ const PostCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover"
+                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-sm"
                 />
               </CarouselItem>
             )
@@ -106,7 +111,7 @@ const PostInfo = ({
     <>
       <div className={cn("flex flex-col justify-between", className)}>
         <PortableText value={post.body} />
-        <div className="flex justify-between">
+        <div className="flex justify-between pt-4">
           <Link className="flex" href={getDevlogLink(post.slug.current)}>
             <Body className="font-base font-semibold">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />

@@ -13,8 +13,12 @@ export const H1 = ({ children }: PropsWithChildren) => {
   );
 };
 
-export const H2 = ({ children }: PropsWithChildren) => {
-  return <h2 className="text-3xl  font-roboto font-semibold">{children}</h2>;
+export const H2 = ({ children, className }: PropsWithChildren<Props>) => {
+  return (
+    <h2 className={cn("text-3xl  font-roboto font-semibold", className)}>
+      {children}
+    </h2>
+  );
 };
 
 export const H3 = ({ children }: PropsWithChildren) => {
