@@ -1,6 +1,5 @@
 import "./globals.css";
 import { NavBar } from "./components/NavBar";
-import { Footer } from "./components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -35,10 +34,9 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-      <body className="bg-[#FCFAFA] font-roboto">
+      <body className="bg-[#FCFAFA] font-roboto px-4" id="home">
         <NavBar />
         {children}
-        <Footer />
       </body>
     </html>
   );

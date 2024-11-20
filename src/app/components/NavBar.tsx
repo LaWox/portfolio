@@ -1,3 +1,5 @@
+"use client";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -6,14 +8,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/app/components/ui/navigation-menu";
-import { NAV_PATHS } from "@/app/constants";
+import { SPA_NAV_PATHS } from "@/app/constants";
 import { Logo } from "./Logo";
 import React from "react";
 import { cn } from "@/lib/utils";
 
 export const NavBar = () => {
   return (
-    <NavigationMenu className="sticky md:mx-16 py-4 top-0 justify-center md:justify-end bg-[#FCFAFA]">
+    <NavigationMenu className="sticky md:mx-16 py-2 top-0 justify-center md:justify-end bg-[#FCFAFA] border-b-2 border-black">
       <div className="mr-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -22,7 +24,7 @@ export const NavBar = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4">
-                {NAV_PATHS.map((path) => {
+                {SPA_NAV_PATHS.map((path) => {
                   return (
                     <ListItem key={path.name} href={"#" + path.path}>
                       {"#" + path.name}
@@ -36,7 +38,7 @@ export const NavBar = () => {
       </div>
       <NavigationMenuList>
         <ul className="flex">
-          {NAV_PATHS.map((path) => {
+          {SPA_NAV_PATHS.map((path) => {
             return (
               <ListItem key={path.name} href={"#" + path.path}>
                 {path.name}

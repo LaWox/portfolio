@@ -3,7 +3,7 @@ import { SanityDocument } from "next-sanity";
 import { Body, H3 } from "./ui/typography";
 import { PortableText } from "@portabletext/react";
 import { getDevlogLink } from "./utils";
-import { ArrowRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -87,7 +87,7 @@ const PostCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-sm"
+                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-md"
                 />
               </CarouselItem>
             )
@@ -116,11 +116,6 @@ const PostInfo = ({
             <Body className="font-base font-semibold">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>
-          {post.gitLink && (
-            <Link target="_blank" href={post.gitLink}>
-              <GitHubLogoIcon width={24} height={24} />
-            </Link>
-          )}
         </div>
       </div>
     </>
