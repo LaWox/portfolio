@@ -1,4 +1,5 @@
 "use client";
+
 import { SanityDocument } from "next-sanity";
 import { Body, H3 } from "./ui/typography";
 import { PortableText } from "@portabletext/react";
@@ -25,7 +26,7 @@ export const ProjectPost = ({
   idx: number;
 }) => {
   return (
-    <Card>
+    <Card className="rounded-none mx-[2px] md:mx-0">
       <CardHeader>
         <H3>{post.title}</H3>
       </CardHeader>
@@ -87,7 +88,7 @@ const PostCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-md"
+                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-sm"
                 />
               </CarouselItem>
             )

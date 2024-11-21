@@ -13,6 +13,7 @@ export const Hero = ({ imageUrl }: { imageUrl: string }) => {
         alt={""}
         width={2400}
         height={1600}
+        priority
       />
     </div>
   );

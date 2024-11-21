@@ -8,25 +8,40 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/app/components/ui/navigation-menu";
-import { SPA_NAV_PATHS } from "@/app/constants";
+import { ANCHOR_PATHS, NAV_PATHS } from "@/app/constants";
 import { Logo } from "./Logo";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const NavBar = () => {
+  const env = process.env.NODE_ENV;
+  console.log("env: ", env);
+  const [baseUrl, setBaseUrl] = useState("http://localhost:3000");
+
+  useEffect(() => {
+    if (env == "development") {
+      setBaseUrl("http://localhost:3000");
+    } else if (env == "production") {
+      setBaseUrl("https://platonwoxler.vercel.app/");
+    }
+  }, []);
+
   return (
-    <NavigationMenu className="sticky md:mx-16 py-2 top-0 justify-center md:justify-end bg-[#FCFAFA] border-b-2 border-black">
+    <NavigationMenu
+      delayDuration={100}
+      className="sticky md:mx-16 py-2 top-0 justify-center bg-[#FCFAFA] border-b-2 border-black"
+    >
       <div className="mr-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="px-0">
+            <NavigationMenuTrigger className="px-0 md:px-2">
               <Logo />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4">
-                {SPA_NAV_PATHS.map((path) => {
+                {ANCHOR_PATHS.map((path) => {
                   return (
-                    <ListItem key={path.name} href={"#" + path.path}>
+                    <ListItem key={path.name} href={baseUrl + path.path}>
                       {"#" + path.name}
                     </ListItem>
                   );
@@ -38,9 +53,9 @@ export const NavBar = () => {
       </div>
       <NavigationMenuList>
         <ul className="flex">
-          {SPA_NAV_PATHS.map((path) => {
+          {NAV_PATHS.map((path) => {
             return (
-              <ListItem key={path.name} href={"#" + path.path}>
+              <ListItem key={path.name} href={baseUrl + path.path}>
                 {path.name}
               </ListItem>
             );
