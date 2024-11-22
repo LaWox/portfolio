@@ -87,8 +87,10 @@ const Entry = ({ entry }: { entry: CvEntry }) => {
         <div className="flex items-center">
           <CalendarIcon width={16} height={16} />
           <Body className="pl-1">
-            {format(entry.startDate, "MMM yyyy")} -{" "}
-            {entry.endDate ? format(entry.endDate, "MMM yyyy") : "Present"}
+            {format(new Date(entry.startDate), "MMM yyyy")} -{" "}
+            {entry.endDate
+              ? format(new Date(entry.endDate), "MMM yyyy")
+              : "Present"}
           </Body>
         </div>
         <div className="flex md:pl-4 items-center">
