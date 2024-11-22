@@ -1,8 +1,6 @@
 "use client";
 
-import { SanityDocument } from "next-sanity";
 import { Body, H3 } from "./ui/typography";
-import { PortableText } from "@portabletext/react";
 import { getDevlogLink } from "./utils";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
@@ -17,12 +15,14 @@ import {
   CarouselNext,
 } from "./ui/carousel";
 import { Card, CardContent, CardHeader } from "./ui/card";
+import { RichText } from "@/sanity/utils";
+import { SanityProjectPostType } from "@/sanity/sanity.types";
 
 export const ProjectPost = ({
   post,
   idx,
 }: {
-  post: SanityDocument;
+  post: SanityProjectPostType;
   idx: number;
 }) => {
   return (
@@ -42,7 +42,13 @@ export const ProjectPost = ({
   );
 };
 
-const DesktopPost = ({ idx, post }: { idx: number; post: SanityDocument }) => {
+const DesktopPost = ({
+  idx,
+  post,
+}: {
+  idx: number;
+  post: SanityProjectPostType;
+}) => {
   return (
     <>
       {idx % 2 === 0 ? (
@@ -60,7 +66,7 @@ const DesktopPost = ({ idx, post }: { idx: number; post: SanityDocument }) => {
   );
 };
 
-const MobilePost = ({ post }: { post: SanityDocument }) => {
+const MobilePost = ({ post }: { post: SanityProjectPostType }) => {
   return (
     <>
       <PostInfo post={post} className="row-span-1" />
@@ -73,7 +79,7 @@ const PostCarousel = ({
   post,
   className,
 }: {
-  post: SanityDocument;
+  post: SanityProjectPostType;
   className?: string;
 }) => {
   return (
@@ -88,7 +94,7 @@ const PostCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-sm"
+                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover"
                 />
               </CarouselItem>
             )
@@ -105,15 +111,15 @@ const PostInfo = ({
   post,
   className,
 }: {
-  post: SanityDocument;
+  post: SanityProjectPostType;
   className?: string;
 }) => {
   return (
     <>
       <div className={cn("flex flex-col justify-between", className)}>
-        <PortableText value={post.body} />
+        <RichText richText={post.body} />
         <div className="flex justify-between pt-4">
-          <Link className="flex" href={getDevlogLink(post.slug.current)}>
+          <Link className="flex" href={getDevlogLink(post.slug?.current ?? "")}>
             <Body className="font-base font-semibold">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>

@@ -1,10 +1,11 @@
-import { PortableText, SanityDocument } from "next-sanity";
 import { H2 } from "./ui/typography";
 
 import Image from "next/image";
 import { Separator } from "./ui/separator";
+import { HeroContent } from "@/sanity/sanity.types";
+import { RichText } from "@/sanity/utils";
 
-export const About = ({ heroContent }: { heroContent: SanityDocument }) => {
+export const About = ({ heroContent }: { heroContent: HeroContent }) => {
   return (
     <div
       id="about"
@@ -23,7 +24,7 @@ export const About = ({ heroContent }: { heroContent: SanityDocument }) => {
       )}
       <Separator orientation="vertical" className="h-8 w-[2px] m-4 bg-black" />
 
-      <PortableText value={heroContent.body} />
+      <RichText richText={heroContent.body} />
     </div>
   );
 };

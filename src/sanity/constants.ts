@@ -7,3 +7,7 @@ export const HERO_QUERY = `*[
     _type == "heroContent"
     && defined(slug.current)
   ][0]{_id, title, body, slug, gitUrl, linkedinUrl, publishedAt, "heroImageUrl": heroImage.asset->url, "portraitImageUrl": portraitImage.asset -> url}`;
+
+  export const CV_ENTRY_QUERY = `*[
+    _type == "cvEntry"
+  ]  | order(startDate){_id, title, companyName, description, entryType, startDate, endDate,  geoPosition}`;

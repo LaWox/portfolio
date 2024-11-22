@@ -1,10 +1,10 @@
 import { H2 } from "./ui/typography";
 
 import { ProjectPost } from "./ProjectPost";
-import { SanityDocument } from "next-sanity";
 import { Separator } from "./ui/separator";
+import { SanityProjectPostType } from "@/sanity/sanity.types";
 
-export const Work = ({ posts }: { posts: SanityDocument[] }) => {
+export const Work = ({ posts }: { posts: SanityProjectPostType[] }) => {
   return (
     <>
       <div

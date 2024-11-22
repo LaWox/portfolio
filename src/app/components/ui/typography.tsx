@@ -29,6 +29,14 @@ export const H3 = ({ children, className }: PropsWithChildren<Props>) => {
   );
 };
 
+export const H4 = ({ children, className }: PropsWithChildren<Props>) => {
+  return (
+    <h3 className={cn("text-xl font-roboto font-semibold", className)}>
+      {children}
+    </h3>
+  );
+};
+
 export const Body = ({ children, className }: PropsWithChildren<Props>) => {
   return <p className={cn("font-roboto", className)}>{children}</p>;
 };
