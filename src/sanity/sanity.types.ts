@@ -95,7 +95,7 @@ export type CvEntry = {
     _type: 'block'
     _key: string
   }>
-  startDate?: string
+  startDate: string
   endDate?: string
   geoPosition?: string
 }

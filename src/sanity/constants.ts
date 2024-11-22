@@ -10,4 +10,4 @@ export const HERO_QUERY = `*[
 
   export const CV_ENTRY_QUERY = `*[
     _type == "cvEntry"
-  ]  | order(startDate){_id, title, companyName, description, entryType, startDate, endDate,  geoPosition}`;
+  ]  | order(startDate desc){_id, title, companyName, description, entryType, startDate, endDate,  geoPosition}`;

@@ -6,8 +6,12 @@ import {
   CalendarIcon,
   EnvelopeClosedIcon,
   HomeIcon,
+  LinkedInLogoIcon,
   SewingPinFilledIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { format } from "date-fns";
+
 type Props = {
   entries: CvEntry[];
 };
@@ -22,19 +26,24 @@ export const CV = ({ entries }: Props) => {
         <H2>Platon Woxler</H2>
       </CardHeader>
       <CardContent>
-        <div>
-          <div className="flex">
-            <div className="flex items-center">
-              <EnvelopeClosedIcon width={16} height={16} />
-              <Body className="pl-1">woxler.platon@gmail.com</Body>
-            </div>
-            <div className="flex items-center pl-4">
-              <HomeIcon width={16} height={16} />
-              <Body className="pl-1">Stockholm, Swe</Body>
-            </div>
+        <div className="md:flex">
+          <div className="flex items-center">
+            <EnvelopeClosedIcon width={16} height={16} />
+            <Body className="pl-1">woxler.platon@gmail.com</Body>
           </div>
+          <div className="flex items-center md:pl-4">
+            <HomeIcon width={16} height={16} />
+            <Body className="pl-1">Stockholm, Swe</Body>
+          </div>
+          <Link
+            href={"https://www.linkedin.com/in/platon-woxler/"}
+            className="flex items-center md:pl-4"
+          >
+            <LinkedInLogoIcon width={16} height={16} />
+            <Body className="pl-1">Platon Woxler</Body>
+          </Link>
         </div>
-        <div className="grid grid-flow-col py-8 gap-8">
+        <div className="grid grid-flow-row md:grid-flow-col py-8 gap-8">
           <div>
             <H3> Experience </H3>
             <Separator className="h-[2px] bg-black mb-2" decorative />
@@ -74,14 +83,15 @@ const Entry = ({ entry }: { entry: CvEntry }) => {
     <div className="grid gap-1">
       <H4> {entry.title} </H4>
       <Body className="font-semibold"> {entry.companyName} </Body>
-      <div className="flex">
+      <div className="md:flex">
         <div className="flex items-center">
           <CalendarIcon width={16} height={16} />
           <Body className="pl-1">
-            {entry.startDate} - {entry.endDate ?? "Present"}
+            {format(entry.startDate, "MMM yyyy")} -{" "}
+            {entry.endDate ? format(entry.endDate, "MMM yyyy") : "Present"}
           </Body>
         </div>
-        <div className="flex pl-4 items-center">
+        <div className="flex md:pl-4 items-center">
           <SewingPinFilledIcon width={16} height={16} />
           <Body className="pl-1"> {entry.geoPosition} </Body>
         </div>
