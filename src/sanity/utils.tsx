@@ -39,3 +39,9 @@ export const RichText = ({ richText }: { richText?: SanityRichText }) => {
     </span>
   ) : null;
 };
+
+export const GetPostQuery = (slug: string) => {
+  return `*[
+    _type == "projectPost" && slug.current == "${slug}"
+  ][0]{_id, title, body, slug, gitLink, publishedAt, "imageUrls": images[].asset->url}`;
+};
