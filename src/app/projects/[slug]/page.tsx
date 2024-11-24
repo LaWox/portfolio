@@ -1,5 +1,4 @@
 import { client } from "@/sanity/client";
-import { POSTS_QUERY, HERO_QUERY } from "@/sanity/constants";
 import { SanityProjectPostType, HeroContent } from "@/sanity/sanity.types";
 import { ProjectPage } from "./ProjectPage";
 import { GetPostQuery } from "@/sanity/utils";
@@ -21,5 +20,6 @@ export default async function Page({
     options
   );
 
+  console.log("post: ", post);
   return post && <ProjectPage page={post} />;
 }

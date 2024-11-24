@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 type SanityRichText = Array<{
   children?: Array<{
     marks?: Array<string>;
@@ -17,9 +19,15 @@ type SanityRichText = Array<{
   _key: string;
 }>;
 
-export const RichText = ({ richText }: { richText?: SanityRichText }) => {
+export const RichText = ({
+  richText,
+  className,
+}: {
+  richText?: SanityRichText;
+  className?: string;
+}) => {
   return richText ? (
-    <span>
+    <span className={cn("", className)}>
       {richText.map((block) => {
         if (block.children) {
           return block.children.map((child) => {

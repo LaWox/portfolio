@@ -1,3 +1,3 @@
-export const getDevlogLink = (slug: string) => {
-    return '/devlogs/' + slug;
+export const getProjectLink = (slug: string) => {
+    return '/projects/' + slug;
 }

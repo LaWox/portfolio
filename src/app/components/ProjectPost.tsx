@@ -1,7 +1,7 @@
 "use client";
 
 import { Body, H3 } from "./ui/typography";
-import { getDevlogLink } from "./utils";
+import { getProjectLink } from "./utils";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import Image from "next/image";
@@ -119,7 +119,10 @@ const PostInfo = ({
       <div className={cn("flex flex-col justify-between", className)}>
         <RichText richText={post.body} />
         <div className="flex justify-between pt-4">
-          <Link className="flex" href={getDevlogLink(post.slug?.current ?? "")}>
+          <Link
+            className="flex"
+            href={getProjectLink(post.slug?.current ?? "")}
+          >
             <Body className="font-base font-semibold">Read more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>
