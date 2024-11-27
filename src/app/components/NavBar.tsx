@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 
 export const NavBar = () => {
   const env = process.env.NODE_ENV;
-  console.log("env: ", env);
   const [baseUrl, setBaseUrl] = useState("http://localhost:3000");
 
   useEffect(() => {

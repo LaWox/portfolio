@@ -1,6 +1,6 @@
 import { client } from "@/sanity/client";
 import { POSTS_QUERY } from "@/sanity/constants";
-import { SanityProjectPostType, HeroContent } from "@/sanity/sanity.types";
+import { SanityProjectPostType } from "@/sanity/sanity.types";
 import { ProjectPost } from "@/components/ProjectPost";
 import { H2 } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
