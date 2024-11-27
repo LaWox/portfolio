@@ -14,9 +14,9 @@ export const Work = ({ posts }: { posts: SanityProjectPostType[] }) => {
         <Separator className="h-1" />
         <H2 className="py-8">Work</H2>
         <div className="grid grid-cols-1 gap-8">
-          {posts.map((post, idx) => (
-            <ProjectPost key={post._id} post={post} idx={idx} />
-          ))}
+          {posts.map((post, idx) => {
+            return <ProjectPost key={post._id} post={post} idx={idx} />;
+          })}
         </div>
       </div>
     </>

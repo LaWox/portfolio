@@ -20,6 +20,5 @@ export default async function Page({
     options
   );
 
-  console.log("post: ", post);
   return post && <ProjectPage page={post} />;
 }

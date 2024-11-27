@@ -20,8 +20,8 @@ type Props = {
 export const ProjectPage = ({ page }: Props) => {
   return (
     <>
-      <PostCarousel post={page} className="col-span-2" />
       <div className="justify-center max-w-6xl mx-auto">
+        <PostCarousel post={page} className="col-span-2 py-8" />
         <H2 className="mx-auto text-center py-4"> {page.title} </H2>
         <RichText className="col-span-1" richText={page.body} />
         <div className="grid grid-flow-col gap-4 pt-4 grid-cols-3"></div>
@@ -48,9 +48,9 @@ const PostCarousel = ({
                 <Image
                   src={imgUrl}
                   alt={""}
-                  height={400}
-                  width={400}
-                  className="object-cover max-h-screen"
+                  height={800}
+                  width={800}
+                  className="object-cover max-h-[calc(100vh-300px)]"
                   style={{ width: "100%", height: "100%" }}
                 />
               </CarouselItem>

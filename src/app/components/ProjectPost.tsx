@@ -17,28 +17,44 @@ import {
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { RichText } from "@/sanity/utils";
 import { SanityProjectPostType } from "@/sanity/sanity.types";
+import { PropsWithChildren } from "react";
 
-export const ProjectPost = ({
-  post,
-  idx,
-}: {
+type Props = {
   post: SanityProjectPostType;
-  idx: number;
-}) => {
+  orientation?: "vertical" | "horizontal";
+  idx?: number;
+};
+
+export const ProjectPost = ({ post, orientation, idx }: Props) => {
   return (
     <Card className="rounded-none mx-[2px] md:mx-0">
       <CardHeader>
         <H3>{post.title}</H3>
       </CardHeader>
       <CardContent>
-        <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
-          <DesktopPost idx={idx} post={post} />
-        </div>
+        <PostGrid orientation={orientation ? orientation : "horizontal"}>
+          <DesktopPost idx={idx !== undefined ? idx : -1} post={post} />
+        </PostGrid>
         <div className="block md:hidden">
           <MobilePost post={post} />
         </div>
       </CardContent>
     </Card>
+  );
+};
+
+type PostGridProps = { orientation: "vertical" | "horizontal" };
+
+const PostGrid = ({
+  children,
+  orientation,
+}: PropsWithChildren<PostGridProps>) => {
+  return orientation === "horizontal" ? (
+    <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
+      {children}
+    </div>
+  ) : (
+    <div className="hidden md:grid grid-col gap-4">{children}</div>
   );
 };
 
@@ -49,6 +65,16 @@ const DesktopPost = ({
   idx: number;
   post: SanityProjectPostType;
 }) => {
+  if (idx === -1) {
+    console.log("idx: ", idx);
+
+    return (
+      <>
+        <PostInfo post={post} />
+        <PostCarousel post={post} />
+      </>
+    );
+  }
   return (
     <>
       {idx % 2 === 0 ? (
@@ -117,13 +143,13 @@ const PostInfo = ({
   return (
     <>
       <div className={cn("flex flex-col justify-between", className)}>
-        <RichText richText={post.body} />
-        <div className="flex justify-between pt-4">
+        <RichText richText={post.body} className="h-[400px] overflow-hidden" />
+        <div className="flex justify-between pt-8 md:pt-4">
           <Link
             className="flex"
             href={getProjectLink(post.slug?.current ?? "")}
           >
-            <Body className="font-base font-semibold">Read more</Body>
+            <Body className="font-base font-semibold">Show more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />
           </Link>
         </div>

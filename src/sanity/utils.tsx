@@ -27,7 +27,7 @@ export const RichText = ({
   className?: string;
 }) => {
   return richText ? (
-    <span className={cn("", className)}>
+    <div className={cn("", className)}>
       {richText.map((block) => {
         if (block.children) {
           return block.children.map((child) => {
@@ -44,7 +44,7 @@ export const RichText = ({
           });
         }
       })}
-    </span>
+    </div>
   ) : null;
 };
 
