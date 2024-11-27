@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import { SanityProjectPostType, HeroContent } from "@/sanity/sanity.types";
+import { SanityProjectPostType } from "@/sanity/sanity.types";
 import { ProjectPage } from "./ProjectPage";
 import { GetPostQuery } from "@/sanity/utils";
 
