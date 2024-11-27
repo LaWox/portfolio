@@ -66,8 +66,6 @@ const DesktopPost = ({
   post: SanityProjectPostType;
 }) => {
   if (idx === -1) {
-    console.log("idx: ", idx);
-
     return (
       <>
         <PostInfo post={post} />
