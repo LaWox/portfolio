@@ -48,8 +48,40 @@ export const RichText = ({
   ) : null;
 };
 
-export const GetPostQuery = (slug: string) => {
-  return `*[
-    _type == "projectPost" && slug.current == "${slug}"
-  ][0]{_id, title, body, slug, gitLink, publishedAt, "imageUrls": images[].asset->url}`;
+export const GetPostBySlugQuery = ({
+  slug,
+  includeDevLogs,
+}: {
+  slug: string;
+  includeDevLogs?: boolean;
+}) => {
+  return includeDevLogs
+    ? `*[ _type == "projectPost" && slug.current == "${slug}"
+  ][0]{
+    _id, 
+    title, 
+    body, 
+    slug, 
+    gitLink, 
+    publishedAt, 
+    "imageUrls": images[].asset->url,
+    "relatedDevLogs": *[_type=="devLogEntry" && references(^._id)][0...5]{
+      _id,
+      title, 
+      body,
+      publishedAt, 
+      "imageUrls": images[].asset->url,
+      }
+}`
+    : `*[ _type == "projectPost" && slug.current == "${slug}"
+  ][0]{
+    _id, 
+    title, 
+    body, 
+    slug, 
+    gitLink, 
+    publishedAt, 
+    "imageUrls": images[].asset->url,
+   
+}`;
 };

@@ -12,20 +12,32 @@ import { cn } from "@/lib/utils";
 import { SanityProjectPostType } from "@/sanity/sanity.types";
 import { RichText } from "@/sanity/utils";
 import Image from "next/image";
+import { DevLogEntry } from "./DevLogEntry";
+import { Separator } from "@/components/ui/separator";
 
 type Props = {
-  page: SanityProjectPostType;
+  post: SanityProjectPostType;
 };
 
-export const ProjectPage = ({ page }: Props) => {
+export const ProjectPage = ({ post }: Props) => {
   return (
     <>
       <div className="justify-center max-w-6xl mx-auto">
-        <PostCarousel post={page} className="col-span-2 py-8" />
-        <H2 className="mx-auto text-center py-4"> {page.title} </H2>
-        <RichText className="col-span-1" richText={page.body} />
+        <PostCarousel post={post} className="col-span-2 py-8" />
+        <H2 className="mx-auto text-center py-4"> {post.title} </H2>
+        <Separator className="h-1" />
+        <RichText className="col-span-1 pt-4" richText={post.body} />
         <div className="grid grid-flow-col gap-4 pt-4 grid-cols-3"></div>
-        <H2 className="text-center py-4"> DevLog </H2>
+        <H2 className="text-center py-4"> DevLogs </H2>
+        <Separator className="h-1" />
+
+        {post.relatedDevLogs && (
+          <div className="grid grid-col grid-cols-1 md:grid-cols-2 gap-8 py-8">
+            {post.relatedDevLogs?.map((devLog) => {
+              return <DevLogEntry key={devLog._id} entry={devLog} />;
+            })}
+          </div>
+        )}
       </div>
     </>
   );

@@ -16,39 +16,46 @@ import {
 } from "./ui/carousel";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { RichText } from "@/sanity/utils";
-import { SanityProjectPostType } from "@/sanity/sanity.types";
+import { RichTextType, Slug } from "@/sanity/sanity.types";
 import { PropsWithChildren } from "react";
 
+type Entry = {
+  title?: string;
+  imageUrls?: string[];
+  slug?: Slug;
+  body?: RichTextType;
+};
+
 type Props = {
-  post: SanityProjectPostType;
+  entry: Entry;
   orientation?: "vertical" | "horizontal";
   idx?: number;
 };
 
-export const ProjectPost = ({ post, orientation, idx }: Props) => {
+export const ProjectEntry = ({ entry, orientation, idx }: Props) => {
   return (
     <Card className="rounded-none mx-[2px] md:mx-0">
       <CardHeader>
-        <H3>{post.title}</H3>
+        <H3>{entry.title}</H3>
       </CardHeader>
       <CardContent>
-        <PostGrid orientation={orientation ? orientation : "horizontal"}>
-          <DesktopPost idx={idx !== undefined ? idx : -1} post={post} />
-        </PostGrid>
+        <EntryGrid orientation={orientation ? orientation : "horizontal"}>
+          <DesktopEntry idx={idx !== undefined ? idx : -1} entry={entry} />
+        </EntryGrid>
         <div className="block md:hidden">
-          <MobilePost post={post} />
+          <MobileEntry entry={entry} />
         </div>
       </CardContent>
     </Card>
   );
 };
 
-type PostGridProps = { orientation: "vertical" | "horizontal" };
+type EntryGridProps = { orientation: "vertical" | "horizontal" };
 
-const PostGrid = ({
+const EntryGrid = ({
   children,
   orientation,
-}: PropsWithChildren<PostGridProps>) => {
+}: PropsWithChildren<EntryGridProps>) => {
   return orientation === "horizontal" ? (
     <div className="hidden md:grid grid-row md:grid-cols-5 gap-8">
       {children}
@@ -58,18 +65,12 @@ const PostGrid = ({
   );
 };
 
-const DesktopPost = ({
-  idx,
-  post,
-}: {
-  idx: number;
-  post: SanityProjectPostType;
-}) => {
+const DesktopEntry = ({ idx, entry }: { idx: number; entry: Entry }) => {
   if (idx === -1) {
     return (
       <>
-        <PostInfo post={post} />
-        <PostCarousel post={post} />
+        <EntryInfo entry={entry} />
+        <EntryCarousel entry={entry} />
       </>
     );
   }
@@ -77,39 +78,39 @@ const DesktopPost = ({
     <>
       {idx % 2 === 0 ? (
         <>
-          <PostInfo post={post} className="md:col-span-2" />
-          <PostCarousel post={post} className="md:col-span-3" />
+          <EntryInfo entry={entry} className="md:col-span-2" />
+          <EntryCarousel entry={entry} className="md:col-span-3" />
         </>
       ) : (
         <>
-          <PostCarousel post={post} className="md:col-span-3" />
-          <PostInfo post={post} className="md:col-span-2" />
+          <EntryCarousel entry={entry} className="md:col-span-3" />
+          <EntryInfo entry={entry} className="md:col-span-2" />
         </>
       )}
     </>
   );
 };
 
-const MobilePost = ({ post }: { post: SanityProjectPostType }) => {
+const MobileEntry = ({ entry }: { entry: Entry }) => {
   return (
     <>
-      <PostInfo post={post} className="row-span-1" />
-      <PostCarousel post={post} className="row-span-1 pt-4" />
+      <EntryInfo entry={entry} className="row-span-1" />
+      <EntryCarousel entry={entry} className="row-span-1 pt-4" />
     </>
   );
 };
 
-const PostCarousel = ({
-  post,
+const EntryCarousel = ({
+  entry,
   className,
 }: {
-  post: SanityProjectPostType;
+  entry: Entry;
   className?: string;
 }) => {
   return (
     <Carousel opts={{ loop: true }} className={cn("", className)}>
       <CarouselContent>
-        {post.imageUrls.map((imgUrl: string) => {
+        {entry.imageUrls?.map((imgUrl: string) => {
           return (
             imgUrl && (
               <CarouselItem key={imgUrl}>
@@ -131,21 +132,21 @@ const PostCarousel = ({
   );
 };
 
-const PostInfo = ({
-  post,
+const EntryInfo = ({
+  entry,
   className,
 }: {
-  post: SanityProjectPostType;
+  entry: Entry;
   className?: string;
 }) => {
   return (
     <>
       <div className={cn("flex flex-col justify-between", className)}>
-        <RichText richText={post.body} className="h-[400px] overflow-hidden" />
+        <RichText richText={entry.body} className="h-[400px] overflow-hidden" />
         <div className="flex justify-between pt-8 md:pt-4">
           <Link
             className="flex"
-            href={getProjectLink(post.slug?.current ?? "")}
+            href={getProjectLink(entry.slug?.current ?? "")}
           >
             <Body className="font-base font-semibold">Show more</Body>
             <ArrowRightIcon className="pl-2" width={24} height={24} />

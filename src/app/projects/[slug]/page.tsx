@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 import { SanityProjectPostType } from "@/sanity/sanity.types";
 import { ProjectPage } from "./ProjectPage";
-import { GetPostQuery } from "@/sanity/utils";
+import { GetPostBySlugQuery } from "@/sanity/utils";
 
 const options = { next: { revalidate: 5 } };
 
@@ -12,13 +12,13 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
 
-  const query = GetPostQuery(slug);
+  const postQuery = GetPostBySlugQuery({ slug: slug, includeDevLogs: true });
 
   const post: SanityProjectPostType = await client.fetch<SanityProjectPostType>(
-    query,
+    postQuery,
     {},
     options
   );
 
-  return post && <ProjectPage page={post} />;
+  return post && <ProjectPage post={post} />;
 }
