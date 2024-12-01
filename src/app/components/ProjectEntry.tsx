@@ -1,11 +1,8 @@
 "use client";
 
-import { Body, H3 } from "./ui/typography";
-import { getProjectLink } from "./utils";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { H3 } from "./ui/typography";
 
 import Image from "next/image";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
   Carousel,
@@ -15,7 +12,6 @@ import {
   CarouselNext,
 } from "./ui/carousel";
 import { Card, CardContent, CardHeader } from "./ui/card";
-import { RichText } from "@/sanity/utils";
 import { RichTextType, Slug } from "@/sanity/sanity.types";
 import { PropsWithChildren } from "react";
 import { EntryInfo } from "./card/CardEntryInfo";
