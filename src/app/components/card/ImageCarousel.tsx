@@ -30,7 +30,7 @@ export const ImageCarousel = ({
                   alt={""}
                   height={400}
                   width={400}
-                  className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover"
+                  className="w-full h-[300px] md:h-[500px] object-cover"
                 />
               </CarouselItem>
             )

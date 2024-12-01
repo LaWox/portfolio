@@ -6,3 +6,5 @@ export type Entry = {
   slug?: Slug;
   body?: RichTextType;
 };
+
+export type CardOrientation = "vertical" | "horizontal";

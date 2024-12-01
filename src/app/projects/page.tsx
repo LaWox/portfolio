@@ -5,7 +5,7 @@ import { ProjectEntry } from "@/components/ProjectEntry";
 import { H2 } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
 
-const options = { next: { revalidate: 5 } };
+const options = { next: { revalidate: 60 } };
 
 export default async function Page() {
   const posts: SanityProjectPostType[] = await client.fetch<

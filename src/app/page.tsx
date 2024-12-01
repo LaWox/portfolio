@@ -6,16 +6,17 @@ import { Hero } from "./components/Hero";
 import { Work } from "./components/Work";
 import { HeroContent, SanityProjectPostType } from "@/sanity/sanity.types";
 
-const options = { next: { revalidate: 5 } };
+const postOptions = { next: { revalidate: 60 } };
+const heroOptions = { next: { revalidate: 600 } };
 
 export default async function Home() {
   const posts: SanityProjectPostType[] = await client.fetch<
     SanityProjectPostType[]
-  >(POSTS_QUERY, {}, options);
+  >(POSTS_QUERY, {}, postOptions);
   const heroContent: HeroContent = await client.fetch<HeroContent>(
     HERO_QUERY,
     {},
-    options
+    heroOptions
   );
 
   return (

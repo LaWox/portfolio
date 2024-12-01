@@ -1,13 +1,13 @@
 import { Card, CardHeader, CardContent } from "../ui/card";
 import { H3 } from "../ui/typography";
 import { CardGrid } from "./CardGrid";
-import { Entry } from "./types";
+import { CardOrientation, Entry } from "./types";
 import { DesktopEntry } from "./DesktopCard";
 import { MobileCard } from "./MobileCard";
 
 type Props = {
   entry: Entry;
-  orientation?: "vertical" | "horizontal";
+  orientation?: CardOrientation;
   idx?: number;
 };
 

@@ -19,6 +19,7 @@ import { RichText } from "@/sanity/utils";
 import { RichTextType, Slug } from "@/sanity/sanity.types";
 import { PropsWithChildren } from "react";
 import { EntryInfo } from "./card/CardEntryInfo";
+import { CardOrientation } from "./card/types";
 
 type Entry = {
   title?: string;
@@ -29,7 +30,7 @@ type Entry = {
 
 type Props = {
   entry: Entry;
-  orientation?: "vertical" | "horizontal";
+  orientation?: CardOrientation;
   idx?: number;
 };
 

@@ -65,7 +65,7 @@ export const GetPostBySlugQuery = ({
     gitLink, 
     publishedAt, 
     "imageUrls": images[].asset->url,
-    "relatedDevLogs": *[_type=="devLogEntry" && references(^._id)][0...5]{
+    "relatedDevLogs": *[_type=="devLogEntry" && references(^._id)][0...5] | order(publishedAt desc){
       _id,
       title, 
       body,
