@@ -62,15 +62,11 @@ export const CV = ({ entries }: Props) => {
                 return (
                   <div key={ee._id}>
                     <Entry entry={ee} />
-                    <Separator className="my-4 " />
+                    <Separator className="my-4" />
                   </div>
                 );
               })}
             </div>
-          </div>
-          <div>
-            <H3> Projects </H3>
-            <Separator className="h-[2px] bg-black" decorative />
           </div>
         </div>
       </CardContent>

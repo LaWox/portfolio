@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { RichText } from "@/sanity/utils";
 import { RichTextType, Slug } from "@/sanity/sanity.types";
 import { PropsWithChildren } from "react";
+import { EntryInfo } from "./card/CardEntryInfo";
 
 type Entry = {
   title?: string;
@@ -129,30 +130,5 @@ const EntryCarousel = ({
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  );
-};
-
-const EntryInfo = ({
-  entry,
-  className,
-}: {
-  entry: Entry;
-  className?: string;
-}) => {
-  return (
-    <>
-      <div className={cn("flex flex-col justify-between", className)}>
-        <RichText richText={entry.body} className="h-[400px] overflow-hidden" />
-        <div className="flex justify-between pt-8 md:pt-4">
-          <Link
-            className="flex"
-            href={getProjectLink(entry.slug?.current ?? "")}
-          >
-            <Body className="font-base font-semibold">Show more</Body>
-            <ArrowRightIcon className="pl-2" width={24} height={24} />
-          </Link>
-        </div>
-      </div>
-    </>
   );
 };
