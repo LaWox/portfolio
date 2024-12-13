@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
 import { RichText } from "@/sanity/utils";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Body } from "../ui/typography";
 import { getProjectLink } from "../utils";
 import { CardOrientation, Entry } from "./types";
+import { useEffect, useRef, useState } from "react";
 
 export const EntryInfo = ({
   entry,
@@ -15,16 +16,45 @@ export const EntryInfo = ({
   className?: string;
   orientation?: CardOrientation;
 }) => {
+  const richTextRef = useRef(null);
+  const [showTextFade, setShowTextFade] = useState(false);
+
+  useEffect(() => {
+    if (richTextRef?.current) {
+      console.log(
+        "richTextRef.current.clientHeight: ",
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        richTextRef.current.clientHeight
+      );
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setShowTextFade(richTextRef.current.clientHeight > 400);
+    }
+  }, [richTextRef]);
+
   return (
     <div className={cn("flex flex-col justify-between", className)}>
-      <div className="relative">
+      <div className="relative" ref={richTextRef}>
         <RichText
           richText={entry.body}
           data-orientation={orientation}
-          className="h-[400px] overflow-hidden"
+          className={`overflow-hidden ${showTextFade && "h-[400px]"}`}
         />
-        <div className="absolute bottom-0 h-24 bg-gradient-to-t from-white w-full"></div>
+        {showTextFade && (
+          <div className="absolute bottom-0 h-24 bg-gradient-to-t from-white w-full"></div>
+        )}
       </div>
+      {showTextFade && (
+        <button
+          className="mx-auto"
+          onClick={() => {
+            setShowTextFade(false);
+          }}
+        >
+          <ChevronDownIcon height={24} width={24} />
+        </button>
+      )}
       {entry.slug && (
         <div className="flex justify-between pt-8 md:pt-4">
           <Link
