@@ -6,6 +6,13 @@ import { Body } from "../ui/typography";
 import { getProjectLink } from "../utils";
 import { CardOrientation, Entry } from "./types";
 import { useEffect, useRef, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 
 export const EntryInfo = ({
   entry,
@@ -21,12 +28,6 @@ export const EntryInfo = ({
 
   useEffect(() => {
     if (richTextRef?.current) {
-      console.log(
-        "richTextRef.current.clientHeight: ",
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        richTextRef.current.clientHeight
-      );
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       setShowTextFade(richTextRef.current.clientHeight > 400);
@@ -46,14 +47,17 @@ export const EntryInfo = ({
         )}
       </div>
       {showTextFade && (
-        <button
-          className="mx-auto"
-          onClick={() => {
-            setShowTextFade(false);
-          }}
-        >
-          <ChevronDownIcon height={24} width={24} />
-        </button>
+        <Dialog>
+          <DialogTrigger className="mx-auto">
+            <ChevronDownIcon width={24} height={24} />
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>{entry.title}</DialogTitle>
+              <RichText richText={entry.body} data-orientation={orientation} />
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       )}
       {entry.slug && (
         <div className="flex justify-between pt-8 md:pt-4">
