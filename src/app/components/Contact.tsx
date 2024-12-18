@@ -26,11 +26,16 @@ export const Contact = () => {
           <Link
             href={"https://www.linkedin.com/in/platon-woxler/"}
             className="flex items-center"
+            target="_blank"
           >
             <Body className="font-bold">LinkeIn</Body>
             <LinkedInLogoIcon className="pl-1" width={20} height={20} />
           </Link>
-          <Link href={"https://github.com/LaWox"} className="flex items-center">
+          <Link
+            href={"https://github.com/LaWox"}
+            target="_blank"
+            className="flex items-center"
+          >
             <Body className="font-bold">Github</Body>
             <GitHubLogoIcon className="pl-1" width={20} height={20} />
           </Link>
