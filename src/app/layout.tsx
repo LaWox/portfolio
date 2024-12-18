@@ -34,7 +34,7 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-      <body className="bg-[#FCFAFA] font-roboto px-4" id="home">
+      <body className="bg-[#FCFAFA] font-roboto px-4 lg:mx-16" id="home">
         <NavBar />
         {children}
       </body>

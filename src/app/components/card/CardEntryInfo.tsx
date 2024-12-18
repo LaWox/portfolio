@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { RichText } from "@/sanity/utils";
-import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Body } from "../ui/typography";
 import { getProjectLink } from "../utils";
@@ -49,7 +49,7 @@ export const EntryInfo = ({
       {showTextFade && (
         <Dialog>
           <DialogTrigger className="mx-auto">
-            <ChevronDownIcon width={24} height={24} />
+            <PlusCircledIcon width={24} height={24} />
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

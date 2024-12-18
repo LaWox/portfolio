@@ -28,8 +28,12 @@ export const ProjectPage = ({ post }: Props) => {
         <Separator className="h-1" />
         <RichText className="col-span-1 pt-4" richText={post.body} />
         <div className="grid grid-flow-col gap-4 pt-4 grid-cols-3"></div>
-        <H2 className="text-center py-4"> DevLogs </H2>
-        <Separator className="h-1" />
+        {post.relatedDevLogs?.length ? (
+          <>
+            <H2 className="text-center py-4"> DevLogs </H2>
+            <Separator className="h-1" />
+          </>
+        ) : null}
 
         {post.relatedDevLogs && (
           <div className="grid grid-col grid-cols-1 md:grid-cols-2 gap-8 py-8">

@@ -28,7 +28,7 @@ export const NavBar = () => {
   return (
     <NavigationMenu
       delayDuration={100}
-      className="sticky md:mx-16 py-2 top-0 justify-center bg-[#FCFAFA] border-b-2 border-black"
+      className="sticky py-2 top-0 justify-center bg-[#FCFAFA] border-b-2 border-black"
     >
       <div className="mr-auto">
         <NavigationMenuList>
