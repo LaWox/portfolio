@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Body } from "../ui/typography";
 import { getProjectLink } from "../utils";
 import { CardOrientation, Entry } from "./types";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import {
   Dialog,
   DialogContent,
