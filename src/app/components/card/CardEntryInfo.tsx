@@ -1,6 +1,10 @@
 import { cn } from "@/lib/utils";
 import { RichText } from "@/sanity/utils";
-import { ArrowRightIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import {
+  ArrowRightIcon,
+  GitHubLogoIcon,
+  PlusCircledIcon,
+} from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Body } from "../ui/typography";
 import { getProjectLink } from "../utils";
@@ -23,16 +27,12 @@ export const EntryInfo = ({
   className?: string;
   orientation?: CardOrientation;
 }) => {
-  const richTextRef = useRef(null);
-  const [showTextFade, setShowTextFade] = useState(false);
+  console.log("entry: ", entry);
+  const richTextRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (richTextRef?.current) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      setShowTextFade(richTextRef.current.clientHeight > 400);
-    }
-  }, [richTextRef]);
+  const showTextFade =
+    richTextRef?.current?.clientHeight &&
+    richTextRef?.current?.clientHeight > 400;
 
   return (
     <div className={cn("flex flex-col justify-between", className)}>
@@ -59,17 +59,27 @@ export const EntryInfo = ({
           </DialogContent>
         </Dialog>
       )}
-      {entry.slug && (
-        <div className="flex justify-between pt-8 md:pt-4">
+      <div className="flex justify-between">
+        {entry.slug && (
+          <div className="flex justify-between pt-8 md:pt-4">
+            <Link
+              className="flex"
+              href={getProjectLink(entry.slug?.current ?? "")}
+            >
+              <Body className="font-base font-semibold">Show more</Body>
+              <ArrowRightIcon className="pl-2" width={24} height={24} />
+            </Link>
+          </div>
+        )}
+        {entry.gitUrl && (
           <Link
-            className="flex"
+            className="flex mt-auto"
             href={getProjectLink(entry.slug?.current ?? "")}
           >
-            <Body className="font-base font-semibold">Show more</Body>
-            <ArrowRightIcon className="pl-2" width={24} height={24} />
+            <GitHubLogoIcon width={24} height={24} />
           </Link>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

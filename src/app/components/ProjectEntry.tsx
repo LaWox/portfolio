@@ -12,17 +12,9 @@ import {
   CarouselNext,
 } from "./ui/carousel";
 import { Card, CardContent, CardHeader } from "./ui/card";
-import { RichTextType, Slug } from "@/sanity/sanity.types";
 import { PropsWithChildren } from "react";
 import { EntryInfo } from "./card/CardEntryInfo";
-import { CardOrientation } from "./card/types";
-
-type Entry = {
-  title?: string;
-  imageUrls?: string[];
-  slug?: Slug;
-  body?: RichTextType;
-};
+import { CardOrientation, Entry } from "./card/types";
 
 type Props = {
   entry: Entry;

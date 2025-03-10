@@ -23,6 +23,7 @@ export const Work = ({ posts }: { posts: SanityProjectPostType[] }) => {
                   imageUrls: post.imageUrls,
                   slug: post.slug,
                   body: post.body,
+                  gitUrl: post.gitLink,
                 }}
                 idx={idx}
               />

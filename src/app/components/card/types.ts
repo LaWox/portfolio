@@ -5,6 +5,7 @@ export type Entry = {
   imageUrls?: string[];
   slug?: Slug;
   body?: RichTextType;
+  gitUrl?: string;
 };
 
 export type CardOrientation = "vertical" | "horizontal";

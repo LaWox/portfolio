@@ -25,6 +25,7 @@ export default async function Page() {
               imageUrls: p.imageUrls,
               slug: p.slug,
               body: p.body,
+              gitUrl: p.gitLink,
             }}
             orientation="vertical"
           />
